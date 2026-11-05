@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An educational interactive project exploring ancient Indian armies, military organisation, strategy, forts and warfare traditions.">
+<title>The Art of Ancient Indian Warfare | Indian Knowledge Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ink:#24170f;--muted:#6e5b49;--paper:#f3e8d2;--paper2:#fbf4e7;--line:#d7c29d;
+ --maroon:#421b20;--maroon2:#642b2b;--gold:#c99a42;--gold2:#e5c77f;--green:#354b3b;
+ --shadow:0 12px 30px rgba(50,27,16,.12);--serif:"Crimson Text",Georgia,serif;--display:"Cinzel",Georgia,serif;--sans:"Inter",Arial,sans-serif
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--serif);background-image:radial-gradient(rgba(130,88,39,.08) .7px,transparent .7px);background-size:8px 8px}
+a{color:var(--maroon2)}a:hover{color:#9a6426}
+.wrap{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba( fifty,20,24,.97);background:rgba(53,22,25,.97);color:#f9efd9;border-bottom:2px solid var(--gold);box-shadow:0 5px 18px #25120f30}
+.navinner{display:flex;align-items:center;gap:22px;min-height:68px;flex-wrap:wrap;padding:10px 0}
+.brand{font:700 1rem var(--display);color:var(--gold2);text-decoration:none;margin-right:auto;letter-spacing:.04em}
+nav a:not(.brand){color:#f8ead0;text-decoration:none;font:600 .76rem var(--sans);letter-spacing:.04em;padding:7px 0;border-bottom:2px solid transparent}
+nav a:not(.brand):hover{border-color:var(--gold)}
+.hero{color:#f8eedb;background:linear-gradient(120deg,rgba(42,16,20,.98),rgba(83,35,34,.94)),radial-gradient(circle at 80% 30%,#a57836,transparent 40%);position:relative;overflow:hidden;padding:76px 0 72px;border-bottom:7px double var(--gold)}
+.hero:after{content:"";position:absolute;inset:0;opacity:.10;background:repeating-linear-gradient(135deg,transparent 0 16px,#f4d89a 17px 18px,transparent 19px 35px);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;position:relative;z-index:1}
+.eyebrow{font:700 .72rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.22;margin:0 0 .55em}
+h1{font-size:clamp(2.25rem,5.7vw,4.5rem);color:#fff4dc;text-shadow:2px 3px 0 #1b0b0b}
+h1 span{color:var(--gold2)}
+h2{font-size:clamp(1.7rem,3.8vw,2.5rem);color:var(--maroon)}
+h3{font-size:1.22rem;color:var(--maroon2)}
+h4{font-size:1rem;color:var(--green)}
+p{margin:.45em 0 1em}.hero p{font-size:1.18rem;color:#e7d6b8;max-width:60ch}
+.hero-art{border:1px solid #d8b76d;padding:10px;background:#2b1517;box-shadow:12px 12px 0 rgba(0,0,0,.2);transform:rotate(1deg)}
+.hero-art svg{display:block;width:100%;height:auto}
+.btn{display:inline-block;border:1px solid #f1d38b;background:linear-gradient(#e3c477,#bd8b36);color:#321a17;padding:12px 20px;text-decoration:none;font:700 .78rem var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:3px;box-shadow:0 4px 0 #805322;transition:.15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #805322;color:#321a17}
+.btn.secondary{background:transparent;color:#f6e6c6;border-color:#b99555;box-shadow:none}
+section{padding:66px 0}
+.section-head{max-width:760px;margin-bottom:28px}
+.kicker{font:700 .7rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#97702f}
+.lead{font-size:1.17rem;color:var(--muted);max-width:72ch}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:18px 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}
+.card{background:var(--paper2);border:1px solid var(--line);border-top:4px solid var(--gold);padding:22px;border-radius:4px;box-shadow:var(--shadow)}
+.card p:last-child{margin-bottom:0}.card .symbol{font-size:2rem;color:var(--maroon2)}
+.card small,.small{font:500 .78rem var(--sans);color:var(--muted)}
+.callout{padding:18px 22px;border-left:5px solid var(--green);background:#e5e7d8;margin:22px 0;border-radius:0 4px 4px 0}
+.warning{border-left-color:#a15b34;background:#f1dfc9}
+.dark{background:var(--maroon);color:#f7ecd8;border-top:5px double var(--gold);border-bottom:5px double var(--gold)}
+.dark h2,.dark h3{color:var(--gold2)}.dark .lead{color:#e2d1b4}.dark .card{background:#f5ead6;color:var(--ink)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+table{border-collapse:collapse;width:100%;background:var(--paper2);font-size:1rem}
+th,td{padding:12px 14px;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:700 .75rem var(--sans);letter-spacing:.06em;text-transform:uppercase;background:var(--maroon);color:#f7e8c7}
+.tablewrap{overflow-x:auto;box-shadow:var(--shadow)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tabs button{font:600 .78rem var(--sans);border:1px solid var(--line);background:#ead9b9;color:var(--maroon);padding:9px 14px;cursor:pointer;border-radius:3px}
+.tabs button[aria-selected=true]{background:var(--maroon);color:#f6e5bf;border-color:var(--gold)}
+.panel{background:var(--paper2);border:1px solid var(--line);padding:22px;border-radius:4px;box-shadow:var(--shadow)}
+.formation-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:center}
+.diagram{background:#e8d7b5;border:1px solid #c7ad7d;padding:12px;border-radius:4px}
+.diagram svg{width:100%;height:auto;display:block}
+.timeline{border-left:3px solid var(--gold);margin:24px 0 0 10px;padding-left:24px}
+.timeline article{position:relative;margin:0 0 24px}.timeline article:before{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:var(--maroon);border:3px solid var(--gold);left:-34px;top:7px}
+.timeline b{font-family:var(--display);color:var(--maroon2)}
+.tag{display:inline-block;padding:3px 8px;border:1px solid var(--line);background:#efe2c7;color:#765323;font:700 .66rem var(--sans);letter-spacing:.05em;text-transform:uppercase;margin:0 4px 5px 0}
+.scenario{background:#2d1b1a;color:#f8ecd7;padding:25px;border:2px solid var(--gold);border-radius:4px}
+.scenario h3{color:var(--gold2)}
+.choice{display:block;width:100%;text-align:left;margin:10px 0;padding:12px 15px;background:#f4e8d2;color:#2b1a15;border:1px solid #caa85f;border-radius:3px;cursor:pointer;font:600 .9rem var(--sans)}
+.choice:hover{background:#e7d1a5}
+.feedback{min-height:55px;color:#f0d48e;margin-top:14px}
+.quizbox{max-width:760px;background:var(--paper2);border:1px solid var(--line);padding:24px;box-shadow:var(--shadow)}
+.option{display:block;width:100%;text-align:left;padding:11px 14px;margin:9px 0;border:1px solid var(--line);background:#fff9ee;color:var(--ink);cursor:pointer;border-radius:3px;font:500 .9rem var(--sans)}
+.option.correct{background:#dce8d7;border-color:#6d8c5c}.option.wrong{background:#f0d5c9;border-color:#ae6248}
+#score{font:700 .9rem var(--sans);color:var(--green)}
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.glossary div{padding:14px;background:var(--paper2);border:1px solid var(--line)}
+.glossary b{display:block;color:var(--maroon);font-family:var(--display)}
+details{background:var(--paper2);border:1px solid var(--line);padding:15px 18px;margin:10px 0}
+summary{cursor:pointer;color:var(--maroon);font-weight:700}
+footer{background:#241416;color:#e9d8bb;padding:44px 0 95px;border-top:5px double var(--gold)}
+footer h2,footer h3{color:var(--gold2)}footer a{color:#f0cf83}
+.refs li{margin:0 0 12px}
+#hud{position:fixed;bottom:0;left:0;right:0;z-index:30;background:#241416;color:#f3dfb5;border-top:2px solid var(--gold);padding:9px max(4%,calc((100% - 1120px)/2));display:flex;align-items:center;gap:14px;font:700 .7rem var(--sans)}
+#hud .bar{height:10px;background:#60413a;flex:1;border:1px solid #a97e44;min-width:60px}
+#hud .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#b77c31,#f2d68e);transition:width .3s}
+#toast{position:fixed;right:16px;bottom:58px;background:#f0d18a;color:#2d1915;padding:11px 15px;z-index:40;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;font:700 .75rem var(--sans)}
+#toast.show{opacity:1;transform:none}
+@media(max-width:800px){.hero-grid,.split,.formation-layout{grid-template-columns:1fr}.hero{padding:54px 0}.navinner{gap:12px}.brand{width:100%}nav a:not(.brand){font-size:.68rem}section{padding:48px 0}}
+@media(max-width:480px){.wrap{width:90%}.hero-art{max-width:420px;margin:auto}#hud{font-size:.62rem}.card{padding:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navinner">
+<a class="brand" href="#top">✦ IKS • MILITARY HERITAGE</a>
+<a href="#overview">Overview</a><a href="#army">Army</a><a href="#strategy">Strategy</a><a href="#texts">Texts</a><a href="#leaders">Leaders</a><a href="#forts">Forts</a><a href="#simulator">Simulator</a><a href="#quiz">Quiz</a><a href="#sources">Sources</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Indian Knowledge Systems • History • Strategic Thought</div>
+<h1>The Art of <span>Ancient Indian</span> Warfare</h1>
+<p>Explore how armies were organised, how rulers planned campaigns, and how military ideas appear in historical texts, inscriptions and epic traditions.</p>
+<p class="small" style="color:#d5bd94">A student project on military organisation, strategy, technology and the ethics of war in the Indian past.</p>
+<a class="btn" href="#overview">Begin the expedition</a> <a class="btn secondary" href="#quiz">Test your knowledge</a>
+</div>
+<div class="hero-art" aria-label="Decorative illustration of an ancient Indian fort, banners and soldiers">
+<svg viewBox="0 0 620 390" role="img" aria-label="Illustration of a fortified Indian city with banners and a marching army">
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#8c563b"/><stop offset="1" stop-color="#d0a15b"/></linearGradient></defs>
+<rect width="620" height="390" fill="url(#sky)"/><circle cx="470" cy="83" r="43" fill="#f1d58e" opacity=".9"/>
+<path d="M0 255 Q120 215 240 250 T480 242 T620 230 V390 H0Z" fill="#49302b"/>
+<path d="M75 270 V160 H145 V125 H185 V160 H235 V115 H280 V160 H335 V140 H390 V160 H470 V120 H520 V160 H565 V270Z" fill="#6f3d30" stroke="#e0bd78" stroke-width="5"/>
+<path d="M75 160 H145 V125 H185 V160 H235 V115 H280 V160 H335 V140 H390 V160 H470 V120 H520 V160 H565" fill="none" stroke="#e8c77e" stroke-width="5"/>
+<g fill="#2d1b1b"><rect x="100" y="190" width="20" height="35"/><rect x="155" y="176" width="18" height="35"/><rect x="250" y="174" width="18" height="35"/><rect x="350" y="180" width="18" height="35"/><rect x="490" y="175" width="18" height="35"/></g>
+<g stroke="#e4c27a" stroke-width="4"><path d="M165 125 V55 M258 115 V43 M492 120 V52"/><path d="M165 55 l45 12 -45 17z M258 43 l45 12 -45 17z M492 52 l45 12 -45 17z" fill="#9b3e32"/></g>
+<g fill="#211918"><path d="M0 330 Q35 285 70 330 L80 390 H0Z"/><path d="M80 340 Q115 292 150 340 L160 390 H80Z"/><path d="M165 335 Q200 290 235 335 L245 390 H165Z"/><path d="M260 342 Q295 295 330 342 L340 390 H260Z"/><path d="M355 340 Q390 290 425 340 L435 390 H355Z"/></g>
+<g stroke="#211918" stroke-width="6"><path d="M40 300 V245 M120 302 V247 M205 300 V240 M300 302 V250 M395 300 V242"/><path d="M30 255 L50 255 M110 257 L130 257 M195 250 L215 250 M290 260 L310 260 M385 252 L405 252"/></g>
+<g fill="#e8c77e"><circle cx="40" cy="291" r="9"/><circle cx="120" cy="293" r="9"/><circle cx="205" cy="291" r="9"/><circle cx="300" cy="293" r="9"/><circle cx="395" cy="291" r="9"/></g>
+<path d="M0 370 Q140 340 270 370 T620 360" stroke="#b77e45" stroke-width="4" fill="none"/>
+</svg>
+</div>
+</div></header>
+
+
+<style>
+.project-team{padding:28px 0;background:#ead9b9;border-bottom:1px solid #c99a42}
+.project-team .team-card{background:#fbf4e7;border:1px solid #d7c29d;border-top:4px solid #c99a42;padding:20px 24px;box-shadow:0 8px 22px rgba(50,27,16,.10)}
+.project-team h2{font-size:1.35rem;margin-bottom:12px}
+.team-table{max-width:620px}
+.team-table td:first-child{font-weight:700;color:#421b20;width:70%}
+.team-table td:last-child{text-align:center;font-weight:700}
+</style>
+<section class="project-team" aria-label="Project team details">
+  <div class="wrap">
+    <div class="team-card">
+      <div class="kicker">Indian Knowledge Systems • Project Details</div>
+      <h2>SOC-18 — Project Team</h2>
+      <div class="tablewrap team-table">
+        <table>
+          <thead><tr><th>Student Name</th><th>Roll No.</th></tr></thead>
+          <tbody>
+            <tr><td>Vedant Suryavanshi</td><td>60</td></tr>
+            <tr><td>Pratik Doke</td><td>61</td></tr>
+            <tr><td>Hrishikesh Dal</td><td>70</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="overview"><div class="wrap">
+<div class="section-head"><div class="kicker">01 • Introduction</div><h2>Understanding warfare in the ancient Indian world</h2><p class="lead">Warfare in the Indian subcontinent changed across centuries and regions. Armies, weapons and methods were shaped by geography, political organisation, available resources and the aims of individual rulers.</p></div>
+<div class="facts">
+<div><b>SUBJECT</b>Military history & strategy</div><div><b>CORE IDEA</b>Organisation + intelligence + logistics</div><div><b>IMPORTANT TEXT</b><i>Arthaśāstra</i></div><div><b>STUDY APPROACH</b>Compare texts with evidence</div>
+</div>
+<div class="grid">
+<article class="card"><div class="symbol">⚔</div><h3>Military organisation</h3><p>How rulers recruited, divided, equipped and commanded different groups of soldiers.</p></article>
+<article class="card"><div class="symbol">♜</div><h3>Battlefield planning</h3><p>How terrain, formations, reserves, timing and coordination could influence a campaign.</p></article>
+<article class="card"><div class="symbol">✧</div><h3>Statecraft & diplomacy</h3><p>Why alliances, negotiation, intelligence and financial strength mattered alongside combat.</p></article>
+<article class="card"><div class="symbol">▤</div><h3>Historical sources</h3><p>Literary works, inscriptions, archaeology and accounts by visitors help reconstruct the past.</p></article>
+</div>
+<div class="callout warning"><b>Important historical note:</b> Ancient Indian warfare was not one fixed system. Practices differed by period and kingdom. Epic descriptions, especially the formations in the <i>Mahabharata</i>, are valuable for understanding literary and cultural ideas, but they should not automatically be treated as verified battlefield records.</div>
+</div></section>
+
+<section class="dark" id="army"><div class="wrap">
+<div class="section-head"><div class="kicker">02 • Military organisation</div><h2>The four traditional arms of the army</h2><p class="lead">A well-known model in ancient Indian military thought is the <i>caturaṅga-bala</i>—a four-part force. The four arms were infantry, cavalry, chariots and elephants. Their actual importance varied across time and place.</p></div>
+<div class="grid">
+<article class="card"><div class="symbol">♟</div><h3>Padāti — Infantry</h3><p>Foot soldiers formed the core manpower of many armies. They could carry bows, arrows, spears, swords, shields and other equipment. Infantry could hold ground, defend positions and support other units.</p><span class="tag">Foot soldiers</span><span class="tag">Flexible force</span></article>
+<article class="card"><div class="symbol">♞</div><h3>Aśva — Cavalry</h3><p>Mounted troops provided speed, mobility and the ability to scout, carry messages, pursue retreating forces or attack exposed positions. Effective cavalry depended on suitable horses, training and supply.</p><span class="tag">Mobility</span><span class="tag">Reconnaissance</span></article>
+<article class="card"><div class="symbol">♜</div><h3>Ratha — Chariots</h3><p>Chariots appear prominently in early Indian texts and epic descriptions. They could serve as mobile platforms for elite warriors and commanders. Their military role changed over the centuries and declined in many later contexts.</p><span class="tag">Mobile platform</span><span class="tag">Historical change</span></article>
+<article class="card"><div class="symbol">♙</div><h3>Gaja — War elephants</h3><p>Elephants could carry fighters, create psychological impact and support heavy movement. They also required specialised handlers, food, water and careful control; frightened elephants could become dangerous to their own side.</p><span class="tag">Shock & presence</span><span class="tag">High logistics</span></article>
+</div>
+<div class="callout" style="background:#3d3028;color:#f2e3c7;border-color:#d2ad62"><b>Beyond the four arms:</b> Armies also depended on commanders, scouts, messengers, engineers, transport workers, armourers, medical support, treasury officials and supply networks. Military strength required an organised state.</div>
+</div></section>
+
+<section id="strategy"><div class="wrap">
+<div class="section-head"><div class="kicker">03 • Strategy & formations</div><h2>How did commanders think about battle?</h2><p class="lead">Strategy involved choosing when and where to fight, arranging troops, protecting supply lines and adapting to an opponent. The following explorer separates broad military concepts from formations known mainly through epic literature.</p></div>
+<div class="tabs" role="tablist" aria-label="Formation explorer">
+<button role="tab" aria-selected="true" data-tab="line">Battle line</button><button role="tab" aria-selected="false" data-tab="wedge">Wedge</button><button role="tab" aria-selected="false" data-tab="circle">Chakravyuha</button><button role="tab" aria-selected="false" data-tab="eagle">Garuda formation</button>
+</div>
+<div class="panel formation-layout">
+<div><div id="formationText"><span class="tag">General concept</span><h3>Battle line</h3><p>A line formation places troops across a front. It can help hold a position, protect important units and coordinate a broad advance. Its effectiveness depends on terrain, troop quality and the ability to maintain cohesion.</p><p><b>Strategic question:</b> How will the commander protect the flanks and prevent the line from breaking?</p></div></div>
+<div class="diagram"><svg id="formationSvg" viewBox="0 0 420 270" role="img" aria-label="Diagram of a battle line formation"><rect width="420" height="270" rx="8" fill="#e8d7b5"/><g fill="#8b3e32" stroke="#4b211d" stroke-width="2"><circle cx="55" cy="70" r="13"/><circle cx="115" cy="70" r="13"/><circle cx="175" cy="70" r="13"/><circle cx="235" cy="70" r="13"/><circle cx="295" cy="70" r="13"/><circle cx="355" cy="70" r="13"/></g><path d="M35 120 H385" stroke="#a67b38" stroke-width="3" stroke-dasharray="8 6"/><g fill="#354b3b"><path d="M185 190 l25 -25 25 25z"/><path d="M185 230 l25 -25 25 25z"/></g><text x="210" y="35" text-anchor="middle" fill="#4b211d" font-size="13" font-family="sans-serif">FRONT LINE</text><text x="210" y="255" text-anchor="middle" fill="#4b211d" font-size="12" font-family="sans-serif">Reserve / support (illustrative)</text></svg></div>
+</div>
+<div class="callout warning"><b>Evidence note:</b> Chakravyuha and Garuda-vyuha are discussed in the <i>Mahabharata</i>. This website presents them as epic narrative formations, not as independently proven diagrams of a specific historical battle.</div>
+</div></section>
+
+<section class="dark" id="texts"><div class="wrap">
+<div class="section-head"><div class="kicker">04 • Knowledge traditions</div><h2>Texts that discuss war, power and duty</h2><p class="lead">Ancient texts are not all the same kind of source. Some are works of statecraft, some are epics, and some belong to traditions of martial training. Their purpose and historical context must be considered before using them as evidence.</p></div>
+<div class="grid">
+<article class="card"><h3><i>Arthaśāstra</i></h3><p>Attributed to Kauṭilya, also known as Chanakya or Vishnugupta, this Sanskrit treatise discusses governance, administration, taxation, diplomacy, intelligence, forts and military affairs. Modern scholarship debates its date, layers and authorship; it should not be treated as a simple eyewitness manual from one moment.</p><span class="tag">Statecraft</span><span class="tag">Diplomacy</span><span class="tag">Military policy</span></article>
+<article class="card"><h3><i>Mahābhārata</i></h3><p>The epic contains elaborate narratives of conflict, warrior conduct, alliances, vows and formations. The Drona Parva includes the famous Chakravyuha episode involving Abhimanyu. It is a literary and cultural source, not a straightforward campaign diary.</p><span class="tag">Epic narrative</span><span class="tag">Ethics of war</span></article>
+<article class="card"><h3><i>Rāmāyaṇa</i></h3><p>The epic describes a major conflict between the forces of Rama and Ravana. Its battle episodes illuminate ideals of kingship, loyalty, courage and righteous conduct, while requiring careful distinction between narrative tradition and historical reconstruction.</p><span class="tag">Epic narrative</span><span class="tag">Heroic ideals</span></article>
+<article class="card"><h3>Dhanurveda traditions</h3><p>Dhanurveda is associated with archery and martial knowledge. References to martial disciplines appear in Indian textual traditions, but surviving materials and their dates vary. Avoid assuming that every later text describes one uniform ancient military curriculum.</p><span class="tag">Martial arts</span><span class="tag">Archery</span></article>
+</div>
+<h3 style="margin-top:32px">Four approaches to statecraft</h3>
+<div class="tablewrap"><table><thead><tr><th>Term</th><th>Common meaning</th><th>Strategic idea</th></tr></thead><tbody>
+<tr><td><b>Sāma</b></td><td>Conciliation or dialogue</td><td>Try negotiation and persuasion.</td></tr>
+<tr><td><b>Dāna</b></td><td>Gifts or concessions</td><td>Use incentives to build cooperation.</td></tr>
+<tr><td><b>Bheda</b></td><td>Division or creating dissension</td><td>Exploit disagreements among opponents.</td></tr>
+<tr><td><b>Daṇḍa</b></td><td>Force or punishment</td><td>Use coercive power when other options fail or are unsuitable.</td></tr>
+</tbody></table></div>
+<p class="small" style="color:#e3d0b0;margin-top:12px">These four terms are commonly presented in later summaries of political strategy. The precise context and wording should be checked against the chosen translation of the <i>Arthaśāstra</i>.</p>
+</div></section>
+
+<section id="leaders"><div class="wrap">
+<div class="section-head"><div class="kicker">05 • People & campaigns</div><h2>Rulers and commanders in the historical record</h2><p class="lead">Military history is not only a story of battles. It also includes state-building, diplomacy, administration and the consequences of conquest.</p></div>
+<div class="grid">
+<article class="card"><h3>Chandragupta Maurya</h3><p>Founder of the Mauryan Empire in the late fourth century BCE. His reign is associated with the consolidation of a large imperial state. The <i>Arthaśāstra</i> is traditionally linked with his adviser Kauṭilya, although the text's composition history is debated.</p><small>Historical focus: empire-building and administration</small></article>
+<article class="card"><h3>King Porus (Puru)</h3><p>Known from Greek accounts for confronting Alexander near the Hydaspes (Jhelum) River in 326 BCE. The battle is an important example of the encounter between Macedonian forces and a north-western Indian ruler. Ancient accounts differ in detail.</p><small>Historical focus: Hydaspes campaign</small></article>
+<article class="card"><h3>Samudragupta</h3><p>A Gupta ruler of the fourth century CE. The Allahabad Pillar inscription, composed by his court poet Harisena, records campaigns and political relationships. It is an important source, but also a royal eulogy and must be read critically.</p><small>Historical focus: inscription and expansion</small></article>
+<article class="card"><h3>Ashoka</h3><p>The Mauryan emperor's inscriptions refer to the Kalinga war and express remorse at the suffering caused by conquest. His public messages emphasised dhamma and moral governance. His reign helps explore the human and political costs of warfare.</p><small>Historical focus: Kalinga and dhamma</small></article>
+</div>
+<div class="callout"><b>How historians check claims:</b> They compare literary descriptions with inscriptions, coins, archaeology and accounts from other societies. A royal inscription may praise a ruler; an epic may shape a moral story; an external account may contain misunderstandings. No single source tells the whole story.</div>
+</div></section>
+
+<section class="dark" id="forts"><div class="wrap">
+<div class="section-head"><div class="kicker">06 • Defence & logistics</div><h2>Forts, terrain and the supply system</h2><p class="lead">A campaign could fail without food, water, transport and secure routes. Fortifications helped protect people, resources and political centres, while geography influenced movement and defence.</p></div>
+<div class="split">
+<div class="card"><h3>Fortifications</h3><p>The <i>Arthaśāstra</i> discusses forts (<i>durga</i>) and their place in state protection. Forts could be associated with hills, forests, water or deserts. A fort's strength depended not only on walls but also on its location, stored provisions, water access and defenders.</p><ul><li>Walls, gates and guarded entry points</li><li>Water sources and food storage</li><li>Observation and communication</li><li>Protection for population and supplies</li></ul></div>
+<div class="card"><h3>Military logistics</h3><p>Armies needed organised supply and maintenance. The movement of soldiers, animals and equipment required planning before and during a campaign.</p><ul><li>Food and clean water</li><li>Fodder for horses and elephants</li><li>Repair of weapons, carts and equipment</li><li>Routes, bridges and transport animals</li><li>Medical care and camp organisation</li></ul></div>
+</div>
+<h3 style="margin-top:32px">Why geography mattered</h3>
+<div class="grid"><article class="card"><h4>Rivers</h4><p>Could act as barriers, routes and sources of water; crossings required planning.</p></article><article class="card"><h4>Forests</h4><p>Could restrict visibility and movement while offering cover and resources.</p></article><article class="card"><h4>Mountains</h4><p>Passes and narrow routes could shape the movement of larger forces.</p></article><article class="card"><h4>Plains</h4><p>Could allow larger formations and mounted movement, depending on conditions.</p></article></div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+<div class="section-head"><div class="kicker">07 • A broad timeline</div><h2>Warfare across changing periods</h2><p class="lead">This timeline is a simplified orientation guide. The dates are approximate and do not imply that military practices changed everywhere at the same time.</p></div>
+<div class="timeline">
+<article><b>Vedic period (broadly c. 1500–600 BCE)</b><p>Texts refer to chariots, warriors, weapons and conflict. Reconstructing actual military organisation requires careful reading of literary and archaeological evidence.</p></article>
+<article><b>Mahajanapadas and early states (c. 600–300 BCE)</b><p>Growing states, fortified settlements and competition for territory shaped political and military organisation.</p></article>
+<article><b>Mauryan period (c. 322–185 BCE)</b><p>A large empire developed extensive administration. Greek accounts, inscriptions and the <i>Arthaśāstra</i> tradition are among the sources used to study this era.</p></article>
+<article><b>Post-Mauryan and Gupta periods (c. 200 BCE–600 CE)</b><p>Regional powers, changing cavalry and elephant roles, diplomatic relations and campaigns shaped the subcontinent's political landscape.</p></article>
+<article><b>Early medieval period (c. 600–1200 CE)</b><p>Regional kingdoms, forts, cavalry forces and varied military systems developed in different parts of the subcontinent.</p></article>
+</div>
+</div></section>
+
+<section class="dark" id="simulator"><div class="wrap">
+<div class="section-head"><div class="kicker">08 • Interactive learning</div><h2>Commander's decision room</h2><p class="lead">Try a fictional planning challenge. There is no single perfect answer in real military history; this activity demonstrates how terrain, information and supply influence decisions.</p></div>
+<div class="scenario">
+<div class="tag">Scenario • Fictional exercise</div><h3 id="scenarioTitle">A river crossing</h3><p id="scenarioText">Your force must cross a wide river. The enemy may be watching the main ford. What should you do first?</p>
+<div id="choices">
+<button class="choice" data-choice="0">Send the entire army across immediately.</button>
+<button class="choice" data-choice="1">Scout the river, identify crossings and secure supplies.</button>
+<button class="choice" data-choice="2">Abandon all planning and challenge the enemy directly.</button>
+</div>
+<div class="feedback" id="feedback" aria-live="polite">Choose an option to see the strategic reasoning.</div>
+<button class="btn secondary" id="nextScenario">Next challenge</button>
+</div>
+</div></section>
+
+<section id="quiz"><div class="wrap">
+<div class="section-head"><div class="kicker">09 • Knowledge check</div><h2>Test what you have learned</h2><p class="lead">Answer the questions to earn experience points. Read the explanation after each answer.</p></div>
+<div class="quizbox"><div id="questionCount" class="small">Question 1 of 8</div><h3 id="question">Which four units are associated with the traditional caturaṅga-bala?</h3><div id="options"></div><p id="explanation" aria-live="polite"></p><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><span id="score">Score: 0</span><button class="btn" id="nextQuestion" disabled>Next question</button></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><div class="kicker">10 • Key vocabulary</div><h2>Glossary</h2><p class="lead">A quick reference to important words used in the project.</p></div>
+<div class="glossary">
+<div><b>Caturaṅga-bala</b>Fourfold army: infantry, cavalry, chariots and elephants.</div>
+<div><b>Padāti</b>Infantry or foot soldiers.</div>
+<div><b>Aśva</b>Horse; in military context, cavalry.</div>
+<div><b>Ratha</b>Chariot.</div>
+<div><b>Gaja / Hastin</b>Elephant.</div>
+<div><b>Durga</b>Fort or fortified stronghold.</div>
+<div><b>Arthaśāstra</b>Treatise on statecraft, governance and political economy, traditionally attributed to Kauṭilya.</div>
+<div><b>Vyūha</b>Formation or ordered arrangement, often discussed in epic battle narratives.</div>
+<div><b>Dhamma</b>A term used in Ashoka's inscriptions for his ethical and moral policy.</div>
+<div><b>Logistics</b>Planning the movement and supply of people, animals and equipment.</div>
+</div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+<div class="section-head"><div class="kicker">11 • Conclusion</div><h2>What can we learn from ancient military thought?</h2></div>
+<div class="grid">
+<article class="card"><h3>Organisation matters</h3><p>An army depends on trained people, command structures, equipment and coordination.</p></article>
+<article class="card"><h3>Information matters</h3><p>Scouting, intelligence and diplomacy can shape decisions before a battle begins.</p></article>
+<article class="card"><h3>Resources matter</h3><p>Food, water, transport, money and secure bases are essential to sustained campaigns.</p></article>
+<article class="card"><h3>Evidence matters</h3><p>Historical understanding improves when texts are compared with inscriptions and material evidence.</p></article>
+</div>
+<p style="font-size:1.15rem;margin-top:28px">Ancient Indian warfare was a changing field of military practice and political thought. Studying it helps us understand not only battles, but also the organisation of states, the use of knowledge and the ethical questions raised by conflict.</p>
+</div></section>
+</main>
+
+<footer id="sources"><div class="wrap">
+<div class="kicker" style="color:#d6b66f">12 • Bibliography & source notes</div><h2>References for further study</h2>
+<p>The project adapts the structure and interactive learning approach of the uploaded HTML. The historical content below is written as a student-level overview. Consult the works listed here for deeper study; translations and interpretations may differ.</p>
+<ol class="refs">
+<li><b>Kauṭilya, <i>King, Governance, and Law in Ancient India: Kauṭilya's Arthaśāstra</i></b>, translated by Patrick Olivelle, Oxford University Press, 2013. <a href="https://academic.oup.com/book/8486" target="_blank" rel="noopener">Publisher page</a>. Useful for statecraft, administration and the text's historical interpretation.</li>
+<li><b>R. P. Kangle, <i>The Kauṭilīya Arthaśāstra</i></b>, Motilal Banarsidass. A major scholarly edition and translation with critical and explanatory notes. <a href="https://www.motilalbanarsidass.com/en-us/products/the-kautiliya-arthasastra-3-volume-set-r-p-kangle" target="_blank" rel="noopener">Publisher information</a>.</li>
+<li><b>Sarva Daman Singh, <i>Ancient Indian Warfare, with Special Reference to the Vedic Period</i></b>, 1962 (reissued by Brill). A detailed study of early warfare, the four traditional arms, weapons and fortifications. <a href="https://soas-repository.worktribe.com/output/402778/ancient-indian-warfare-with-special-reference-to-the-vedic-period" target="_blank" rel="noopener">SOAS repository record</a>.</li>
+<li><b><i>The Mahābhārata</i>, Drona Parva</b>. Consult a reliable translation for the Chakravyuha and Abhimanyu narrative. This is used here as an epic-literary source, not as independent proof of a specific historical battle formation.</li>
+<li><b>Oxford University Press, “Warfare” chapter on Ancient India</b>. Introductory educational discussion of army divisions and battle practices. <a href="https://www.oup.com.au/__data/assets/pdf_file/0026/58184/Chapter-14-Ancient-India-obook-only.pdf" target="_blank" rel="noopener">Read chapter PDF</a>.</li>
+<li><b>Upinder Singh, <i>A History of Ancient and Early Medieval India</i></b>, Pearson. A broad academic history useful for checking chronology, inscriptions and political context.</li>
+</ol>
+<div class="callout" style="background:#382322;color:#f4e5c8;border-color:#d3ad60"><b>Method note for presentation:</b> Explain that the project combines information from historical scholarship and translated textual traditions. Be clear when a point comes from an epic narrative, a political treatise or a modern historian. Do not present legendary details as confirmed archaeological facts.</div>
+<p class="small" style="color:#cbb995">Educational project • Indian Knowledge Systems • Ancient Indian Warfare & Military Strategies</p>
+</div></footer>
+
+<div id="hud"><span id="level">LEVEL 1</span><div class="bar"><i id="xpbar"></i></div><span id="xptext">0 XP</span></div><div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ---------- XP and achievements ---------- */
+let xp=0;
+function award(points,message){xp+=points;document.getElementById('xptext').textContent=xp+' XP';document.getElementById('level').textContent='LEVEL '+(1+Math.floor(xp/100));document.getElementById('xpbar').style.width=(xp%100)+'%';const t=document.getElementById('toast');t.textContent=message+' +'+points+' XP';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>award(2,'Exploration')));
+
+/* ---------- Formation explorer ---------- */
+const formationData={
+line:{tag:'General concept',title:'Battle line',text:'A line formation places troops across a front. It can help hold a position, protect important units and coordinate a broad advance. Its effectiveness depends on terrain, troop quality and the ability to maintain cohesion.',question:'Strategic question: How will the commander protect the flanks and prevent the line from breaking?',aria:'Diagram of a battle line formation',draw:`<g fill="#8b3e32" stroke="#4b211d" stroke-width="2">${[55,115,175,235,295,355].map(x=>`<circle cx="${x}" cy="70" r="13"/>`).join('')}</g><path d="M35 120 H385" stroke="#a67b38" stroke-width="3" stroke-dasharray="8 6"/><g fill="#354b3b"><path d="M185 190 l25 -25 25 25z"/><path d="M185 230 l25 -25 25 25z"/></g><text x="210" y="35" text-anchor="middle" fill="#4b211d" font-size="13">FRONT LINE</text><text x="210" y="255" text-anchor="middle" fill="#4b211d" font-size="12">Reserve / support</text>`},
+wedge:{tag:'General concept',title:'Wedge or spearhead',text:'A wedge concentrates strength toward a narrower point. In broad tactical terms, it can be used to create pressure at a selected part of an opposing line. If the sides are unsupported, however, the attacking force may become exposed.',question:'Strategic question: What support is needed to prevent the spearhead from being isolated?',aria:'Illustrative wedge formation',draw:`<g fill="#8b3e32" stroke="#4b211d" stroke-width="2"><circle cx="210" cy="55" r="15"/>${[170,250].map(x=>`<circle cx="${x}" cy="105" r="14"/>`).join('')}${[130,210,290].map(x=>`<circle cx="${x}" cy="155" r="14"/>`).join('')}${[90,170,250,330].map(x=>`<circle cx="${x}" cy="205" r="14"/>`).join('')}</g><path d="M210 22 V5" stroke="#354b3b" stroke-width="3"/><text x="210" y="250" text-anchor="middle" fill="#4b211d" font-size="12">Concentrated front</text>`},
+circle:{tag:'Epic narrative • Mahabharata',title:'Chakravyuha',text:'The Chakravyuha is described in the Mahabharata as a complex, layered battle arrangement. In the Drona Parva, Abhimanyu enters the formation but cannot find a way out and is surrounded. The story is culturally significant, but it should not be treated as a verified technical diagram of a historical battle.',question:'Learning point: The episode explores knowledge, coordination, courage and the danger of incomplete information.',aria:'Stylised concentric circles representing the Chakravyuha story',draw:`<g fill="none" stroke-width="15"><circle cx="210" cy="128" r="100" stroke="#9b5738"/><circle cx="210" cy="128" r="72" stroke="#b98643"/><circle cx="210" cy="128" r="44" stroke="#8b3e32"/><circle cx="210" cy="128" r="16" stroke="#354b3b"/></g><path d="M210 28 A100 100 0 0 1 288 65 M210 56 A72 72 0 0 1 267 91 M210 84 A44 44 0 0 1 245 112" stroke="#f7edda" stroke-width="5" fill="none"/><text x="210" y="255" text-anchor="middle" fill="#4b211d" font-size="12">Epic-literary illustration, not a historical map</text>`},
+eagle:{tag:'Epic narrative tradition',title:'Garuda-vyuha',text:'Garuda-vyuha is named after Garuda, the powerful bird figure in Indian tradition. The Mahabharata describes named formations using symbolic shapes. Modern drawings are interpretive reconstructions; the exact historical arrangement cannot be confirmed from the name alone.',question:'Learning point: Names and symbolism in epic texts can communicate ideas about shape, strength and deployment.',aria:'Symbolic bird-like formation illustration',draw:`<g fill="#8b3e32" stroke="#4b211d" stroke-width="2"><circle cx="210" cy="110" r="18"/><circle cx="210" cy="165" r="14"/><circle cx="150" cy="95" r="14"/><circle cx="100" cy="65" r="13"/><circle cx="270" cy="95" r="14"/><circle cx="320" cy="65" r="13"/><circle cx="165" cy="205" r="13"/><circle cx="255" cy="205" r="13"/></g><path d="M190 110 Q130 55 45 35 M230 110 Q290 55 375 35 M210 128 V210" fill="none" stroke="#a67b38" stroke-width="4"/><text x="210" y="250" text-anchor="middle" fill="#4b211d" font-size="12">Symbolic modern interpretation</text>`}
+};
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected','false'));btn.setAttribute('aria-selected','true');const d=formationData[btn.dataset.tab];document.getElementById('formationText').innerHTML=`<span class="tag">${d.tag}</span><h3>${d.title}</h3><p>${d.text}</p><p><b>${d.question}</b></p>`;const svg=document.getElementById('formationSvg');svg.setAttribute('aria-label',d.aria);svg.innerHTML=`<rect width="420" height="270" rx="8" fill="#e8d7b5"/>${d.draw}`;award(5,'Formation studied')}));
+
+/* ---------- Decision room ---------- */
+const scenarios=[
+{title:'A river crossing',text:'Your force must cross a wide river. The enemy may be watching the main ford. What should you do first?',choices:['Send the entire army across immediately.','Scout the river, identify crossings and secure supplies.','Abandon all planning and challenge the enemy directly.'],correct:1,why:'Correct strategic instinct: reconnaissance and supply planning reduce uncertainty before a difficult movement.'},
+{title:'A long campaign',text:'Your army is moving far from its base. Food and fodder are becoming scarce. What is the strongest response?',choices:['Ignore supplies and keep marching.','Review routes, secure provisions and adjust the pace.','Send away all support staff.'],correct:1,why:'A campaign depends on logistics. Food, water, fodder, transport and rest affect the army’s ability to continue.'},
+{title:'An uncertain rival',text:'You do not know whether a neighbouring ruler will support your opponent. What should your court consider?',choices:['Gather reliable information and explore diplomacy.','Assume the worst without checking.','Destroy your own stores to move faster.'],correct:0,why:'Intelligence and diplomacy help rulers understand alliances and avoid acting on assumptions.'}
+];
+let scenarioIndex=0;
+function loadScenario(){const s=scenarios[scenarioIndex];document.getElementById('scenarioTitle').textContent=s.title;document.getElementById('scenarioText').textContent=s.text;document.getElementById('feedback').textContent='Choose an option to see the strategic reasoning.';document.getElementById('choices').innerHTML=s.choices.map((c,i)=>`<button class="choice" data-choice="${i}">${c}</button>`).join('');document.querySelectorAll('.choice').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.choice').forEach(x=>x.disabled=true);const good=Number(b.dataset.choice)===s.correct;document.getElementById('feedback').textContent=(good?'Good decision. ':'Consider the consequences. ')+s.why;if(good)award(15,'Strategic decision');}));}
+document.getElementById('nextScenario').addEventListener('click',()=>{scenarioIndex=(scenarioIndex+1)%scenarios.length;loadScenario()});loadScenario();
+
+/* ---------- Quiz ---------- */
+const questions=[
+{q:'Which four units are associated with the traditional caturaṅga-bala?',o:['Infantry, cavalry, chariots and elephants','Ships, aircraft, tanks and infantry','Archers, engineers, doctors and traders'],a:0,e:'The four traditional arms are foot soldiers, horse troops, chariots and elephants.'},
+{q:'Which Sanskrit term is commonly used for a fort?',o:['Durga','Dharma','Sabha'],a:0,e:'Durga refers to a fort or fortified stronghold.'},
+{q:'Which text is traditionally attributed to Kauṭilya?',o:['Arthaśāstra','Nāṭyaśāstra','Meghadūta'],a:0,e:'The Arthaśāstra is a treatise on statecraft and governance traditionally attributed to Kauṭilya.'},
+{q:'The Chakravyuha episode involving Abhimanyu appears in which epic?',o:['Ramayana','Mahabharata','Panchatantra'],a:1,e:'The story appears in the Drona Parva of the Mahabharata.'},
+{q:'Which of the following was a major logistical requirement for war elephants?',o:['Fodder and water','Printing presses','Gunpowder factories'],a:0,e:'Elephants required substantial food, water, handlers and care.'},
+{q:'The battle of the Hydaspes is associated with which ruler?',o:['Porus','Ashoka','Harsha'],a:0,e:'Porus fought Alexander near the Hydaspes River in 326 BCE.'},
+{q:'What is the best way to evaluate an epic battle description as historical evidence?',o:['Accept every detail literally','Compare it with other evidence and consider its genre','Ignore all literary sources'],a:1,e:'Historians consider genre, date, purpose and comparison with inscriptions, archaeology and other accounts.'},
+{q:'What does military logistics mainly concern?',o:['Supply, transport and maintenance','Only the names of kings','Only battle poetry'],a:0,e:'Logistics includes food, water, transport, equipment, routes and maintenance.'}
+];
+let qi=0,score=0,answered=false;
+function showQuestion(){answered=false;const q=questions[qi];document.getElementById('questionCount').textContent=`Question ${qi+1} of ${questions.length}`;document.getElementById('question').textContent=q.q;document.getElementById('explanation').textContent='';document.getElementById('nextQuestion').disabled=true;document.getElementById('nextQuestion').textContent=qi===questions.length-1?'See result':'Next question';document.getElementById('options').innerHTML=q.o.map((o,i)=>`<button class="option" data-index="${i}">${o}</button>`).join('');document.querySelectorAll('.option').forEach(b=>b.addEventListener('click',()=>{if(answered)return;answered=true;const correct=Number(b.dataset.index)===q.a;document.querySelectorAll('.option').forEach(x=>{x.disabled=true;if(Number(x.dataset.index)===q.a)x.classList.add('correct')});if(!correct)b.classList.add('wrong');else{score++;award(10,'Correct answer')}document.getElementById('score').textContent=`Score: ${score}`;document.getElementById('explanation').textContent=(correct?'Correct! ':'Not quite. ')+q.e;document.getElementById('nextQuestion').disabled=false;}));}
+document.getElementById('nextQuestion').addEventListener('click',()=>{if(qi<questions.length-1){qi++;showQuestion()}else{document.getElementById('questionCount').textContent='Quiz complete';document.getElementById('question').textContent=`You scored ${score} out of ${questions.length}`;document.getElementById('options').innerHTML='<p>Review the sections and try again to improve your score.</p>';document.getElementById('explanation').textContent=score>=6?'Excellent work! You have understood the key ideas.':'Good effort. Revisit the army, texts and evidence sections.';document.getElementById('nextQuestion').textContent='Restart quiz';document.getElementById('nextQuestion').disabled=false;document.getElementById('nextQuestion').onclick=()=>{qi=0;score=0;document.getElementById('score').textContent='Score: 0';document.getElementById('nextQuestion').onclick=null;showQuestion()};}});showQuestion();
+</script>
+</body>
+</html>
